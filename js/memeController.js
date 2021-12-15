@@ -3,6 +3,11 @@
 var gCanvas;
 var gCtx;
 
+function canvasInit() {
+    gCanvas = document.querySelector('#canvas');
+    gCtx = gCanvas.getContext('2d');
+}
+
 function renderMeme() {
     var img = new Image();
     img.src = getMeme();

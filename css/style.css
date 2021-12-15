@@ -30,7 +30,7 @@ input:focus, textarea:focus, select:focus{
     justify-content: space-between;
     height: 3.125rem;
     background-color: #fff;
-    margin: 0 0 1.875rem;
+    margin: 0;
     box-shadow: 0px 1px 0px #DBDBDB;
 }
 
@@ -63,7 +63,7 @@ input:focus, textarea:focus, select:focus{
 .search-bar input{
     width: calc(100% - 2.5rem);
     height: 2.625rem;
-    margin: 0 1.25rem 1.875rem;
+    margin: 1.875rem 1.25rem;
     background-color: #fff;
     border: 1px solid #E5E5E5;
     border-radius: 5.063rem;
@@ -100,8 +100,23 @@ li img {
     border-radius: 0.625rem;
 }
 
-/* HELPERS */
+/* EDITOR */
+.editor {
+    margin-top: 0.0625rem;
+    height: calc(100vh - 3.1875rem);
+    grid-template-columns: 8.9fr 5.5fr;
+    grid-template-rows: 1fr;
+}
 
+.canvas-container {
+    background-color: #fff;
+}
+
+.gui {
+    background-color: #F8F8F8;
+}
+
+/* HELPERS */
 .clean-list {
     list-style-type: none;
     padding: 0;

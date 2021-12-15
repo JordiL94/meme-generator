@@ -33,25 +33,27 @@
     <section class="gallery">
     </section>
 
-    <section class="editor">
-      <div class="canvas-container">
-        <canvas
-			    id="canvas"
-			    height="400"
-			    width="400"
-		      ></canvas>
-      </div>
-      <div class="gui">
-        <label>Choose Color: <input type="color" value="#f6b73c"></label>
-        <label>Change Font: <button> >> </button></label>
-      </div>
-    </section>
   </main>
+  
+  <section class="editor">
+    <div class="canvas-container">
+      <button class="back-to-gallery" onclick="onShowGallery()">< Back to Gallery</button>
+      <canvas
+        id="canvas"
+        height="500"
+        width="500"
+      ></canvas>
+    </div>
+    <div class="gui">
+      <label>Choose Color: <input type="color" value="#f6b73c"></label>
+      <label>Change Font: <button> >> </button></label>
+    </div>
+  </section>
 
-  <script src="js/main.js"></script>
   <script src="js/memeService.js"></script>
   <script src="js/galleryController.js"></script>
   <script src="js/memeController.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
