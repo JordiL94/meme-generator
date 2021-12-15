@@ -42,6 +42,13 @@ function getMeme() {
     return memeImg[0].url;
 }
 
+function getLineTxt() {
+    const lines = gMeme.lines.map(line => {
+        return line.txt;
+    })
+    return lines;
+}
+
 function setLineTxt(elTxt, idx) {
     gMeme.lines[idx].txt = elTxt;
     renderMeme();
