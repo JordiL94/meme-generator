@@ -29,7 +29,8 @@ var gMeme = {
             txt: 'Input Text',
             size: 40,
             align: 'center',
-            color: 'white'
+            color: 'white',
+            border: '#121212'
         }
     ]
 };
@@ -107,12 +108,18 @@ function getTotalLines() {
     return gMeme.lines.length;
 }
 
+function changeBorder(val) {
+    const lineIdx = gMeme.slectedLineIdx;
+    gMeme.lines[lineIdx].border = val;
+}
+
 function _createLine() {
     const newLine = {
         txt: 'Input Text',
         size: 40,
         align: 'center',
-        color: 'white'
+        color: 'white',
+        border: '#121212'
     };
     return newLine;
 }

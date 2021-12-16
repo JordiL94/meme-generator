@@ -37,7 +37,7 @@
   
   <section class="editor">
     <div class="canvas-container">
-      <button class="back-to-gallery" onclick="onShowGallery()"><span><</span>Back to Gallery</button>
+      <button class="back-to-gallery" onclick="onShowGallery()"><span><i class="fas fa-angle-left"></i></span>Back to Gallery</button>
       <div>
         <canvas
           id="canvas"
@@ -52,9 +52,9 @@
         <div class="meme-gui">
           <span class="current-line">1</span>
           <span class="total-lines">/1</span>
-          <button class="nav-lines" onclick="onChangeLine()">^</button>
-          <button class="add-line" onclick="onAddLine()">+</button>
-          <button class="delete-line" onclick="onDeleteLine()">-</button>
+          <button class="nav-lines" onclick="onChangeLine()"><i class="fas fa-exchange-alt fa-rotate-90"></i></button>
+          <button class="add-line" onclick="onAddLine()"><i class="far fa-plus-square"></i></button>
+          <button class="delete-line" onclick="onDeleteLine()"><i class="far fa-trash-alt"></i></button>
         </div>
       </section>
       <section class="text">
@@ -67,22 +67,27 @@
           <button class="change-text-size" onclick="onChangeFontSize(1)">A+</button>
           <span class="seperator">|</span>
           <span class="change-align">
-            <button onclick="onChangeAlign(0)">L</button>
-            <button onclick="onChangeAlign(1)">C</button>
-            <button onclick="onChangeAlign(2)">R</button>
+            <button onclick="onChangeAlign(0)"><i class="fas fa-align-left"></i></button>
+            <button onclick="onChangeAlign(1)"><i class="fas fa-align-center"></i></button>
+            <button onclick="onChangeAlign(2)"><i class="fas fa-align-right"></i></button>
           </span>
           <span class="seperator">|</span>
-          <label class="choose-color"><input type="color" value="#FFFFFF" onchange="onChangeColor(this.value)"><span>CC</span></label>
+          <label class="choose-border"><input type="color" value="#121212" onchange="onChangeBorder(this.value)"><span><i class="fas fa-font"></i></i></span></label>
+          <label class="choose-color"><input type="color" value="#FFFFFF" onchange="onChangeColor(this.value)"><span><i class="fas fa-paint-brush"></i></span></label>
         </div>
         <textarea id="" cols="50" rows="2" oninput="onChangeText(this.value)"></textarea>
       </section>
     </div>
   </section>
 
+  <!-- APP SERVICES -->
   <script src="js/memeService.js"></script>
   <script src="js/galleryController.js"></script>
   <script src="js/memeController.js"></script>
   <script src="js/main.js"></script>
+
+  <!-- FONT-AWESOME -->
+  <script src="https://kit.fontawesome.com/f2cc6273c5.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

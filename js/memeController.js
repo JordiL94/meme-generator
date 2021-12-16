@@ -26,7 +26,7 @@ function drawText(line, idx) {
     gCtx.textAlign = line.align;
     gCtx.font = `${line.size}px Impact`;
     gCtx.fillStyle = line.color;
-    gCtx.strokeStyle = 'black';
+    gCtx.strokeStyle = line.border;
     gCtx.lineWidth = 2;
     if(!idx) {
         gCtx.fillText(line.txt, (gCanvas.width / 2), 50);
@@ -40,6 +40,23 @@ function drawText(line, idx) {
     }
     gCtx.fill();
     gCtx.stroke();
+}
+
+function renderLineIndicator() {
+    const totalLines = getTotalLines();
+    const currLineInd = document.querySelector('.current-line'); 
+    const totalLinesInd = document.querySelector('.total-lines'); 
+    if(totalLines === 0) {
+        currLineInd.style.display = 'none';
+        totalLinesInd.style.display = 'none';
+        return;
+    }
+    currLineInd.style.display = 'inline';
+    totalLinesInd.style.display = 'inline';
+    
+    const currLine = getCurrLine();
+    currLineInd.innerText = (currLine + 1);
+    totalLinesInd.innerText = '/' + totalLines;
 }
 
 function onChangeText(elVal) {
@@ -82,19 +99,7 @@ function onDeleteLine() {
     renderMeme();
 }
 
-function renderLineIndicator() {
-    const totalLines = getTotalLines();
-    const currLineInd = document.querySelector('.current-line'); 
-    const totalLinesInd = document.querySelector('.total-lines'); 
-    if(totalLines === 0) {
-        currLineInd.style.display = 'none';
-        totalLinesInd.style.display = 'none';
-        return;
-    }
-    currLineInd.style.display = 'inline';
-    totalLinesInd.style.display = 'inline';
-    
-    const currLine = getCurrLine();
-    currLineInd.innerText = (currLine + 1);
-    totalLinesInd.innerText = '/' + totalLines;
+function onChangeBorder(val) {
+    changeBorder(val);
+    renderMeme();
 }

@@ -122,6 +122,7 @@ li img {
 }
 
 .back-to-gallery {
+    cursor: pointer;
     background: none;
     border: none;
     font-size: 0.875rem;
@@ -168,10 +169,13 @@ li img {
 }
 
 .meme-gui button {
+    cursor: pointer;
+    font-size: 1rem;
     margin-inline-start: 1.25rem;
     padding: 0;
     border: none;
     background-color: inherit;
+    color: #727272;
 }
 
 .text {
@@ -221,6 +225,7 @@ li img {
     padding: 0;
     border:none;
     background-color: inherit;
+    color: #727272;
 }
 
 .change-align button:last-child {
@@ -230,7 +235,7 @@ li img {
 .seperator {
     font-size: 1.125rem;
     color: #727272;
-    margin: 0 1.375rem;
+    margin: 0 1.175rem;
 }
 
 .choose-color {
@@ -243,6 +248,12 @@ li img {
     position: absolute;
 }
 
+.fas.fa-paint-brush {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #727272;
+}
+
 .choose-color input {
     width: 1rem;
     height: 1rem;
@@ -252,7 +263,31 @@ li img {
     visibility: hidden;
 }
 
+.choose-border {
+    margin-inline-end: 1.3rem;
+    display: inline-flex;
+    justify-content: center;
+}
 
+.choose-border span {
+    margin: 0;
+    position: absolute;
+}
+
+.fas.fa-font {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #727272;
+}
+
+.choose-border input {
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+    border: none;
+    background-color: inherit;
+    visibility: hidden;
+}
 
 .text textarea {
     border: 1px solid #EBEBEB;
