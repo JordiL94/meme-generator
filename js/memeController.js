@@ -24,6 +24,19 @@ function drawText(txt) {
     gCtx.textAlign = 'center';
     gCtx.font = '3rem Impact';
     gCtx.fillStyle = 'white';
+    gCtx.strokeStyle = 'black';
+    gCtx.lineWidth = 2;
     gCtx.fillText(txt, 250, 50);
-    // gCtx.strokeText(txt, 50, 50);
+    gCtx.strokeText(txt, 250, 50);
+    gCtx.fill();
+    gCtx.stroke();
+}
+
+function onChangeText(elVal) {
+    setLineTxt(elVal, 0);
+}
+
+function onSetFont(val) {
+    return;
+    // TODO: finish func
 }
