@@ -18,7 +18,6 @@ function renderMeme() {
             drawText(line, idx);
         });
     }
-    // TODO: add text on top of image
 }
 
 function drawText(line, idx) {
@@ -49,4 +48,9 @@ function onChangeText(elVal) {
 function onSetFont(val) {
     return;
     // TODO: finish func
+}
+
+function onChangeFontSize(val) {
+    changeFontSize(val);
+    renderMeme();
 }

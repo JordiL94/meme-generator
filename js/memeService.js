@@ -59,3 +59,15 @@ function setImg(id) {
 function getImgs() {
     return gImgs;
 }
+
+function changeFontSize(val) {
+    if(val) {
+        gMeme.lines.forEach(line => {
+            line.size += 2;
+        })
+    } else {
+        gMeme.lines.forEach(line => {
+            line.size -= 2;
+        })
+    }
+}
