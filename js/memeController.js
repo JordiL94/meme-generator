@@ -11,23 +11,33 @@ function canvasInit() {
 function renderMeme() {
     var img = new Image();
     img.src = getMeme();
-    const txt = getLineTxt();
+    const lines = getLine();
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-        drawText(txt);
+        lines.forEach((line, idx) => {
+            drawText(line, idx);
+        });
     }
     // TODO: add text on top of image
 }
 
-function drawText(txt) {
+function drawText(line, idx) {
     gCtx.textBaseline = 'middle';
-    gCtx.textAlign = 'center';
-    gCtx.font = '3rem Impact';
-    gCtx.fillStyle = 'white';
+    gCtx.textAlign = line.align;
+    gCtx.font = `${line.size}px Impact`;
+    gCtx.fillStyle = line.color;
     gCtx.strokeStyle = 'black';
     gCtx.lineWidth = 2;
-    gCtx.fillText(txt, 250, 50);
-    gCtx.strokeText(txt, 250, 50);
+    if(!idx) {
+        gCtx.fillText(line.txt, (gCanvas.width / 2), 50);
+        gCtx.strokeText(line.txt, (gCanvas.width / 2), 50);
+    } else if(idx === 1) {
+        gCtx.fillText(line.txt, (gCanvas.width / 2), (gCanvas.height - 50));
+        gCtx.strokeText(line.txt, (gCanvas.width / 2), (gCanvas.height - 50));
+    } else {
+        gCtx.fillText(line.txt, (gCanvas.width / 2), (gCanvas.height / 2));
+        gCtx.strokeText(line.txt, (gCanvas.width / 2), (gCanvas.height / 2));
+    }
     gCtx.fill();
     gCtx.stroke();
 }

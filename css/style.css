@@ -151,6 +151,35 @@ li img {
     border-bottom: none;
     background-color: #fff;
     border-radius: 10px 10px 0 0;
+    padding: 0.625rem 1rem;
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+}
+
+.text-gui select {
+    margin: 0 auto;
+    border: 1px solid #EBEBEB;
+    border-radius: 0.125rem;
+    height: 1.375rem;
+    width: 10rem;
+    color: #989898;
+}
+
+.text-gui button {
+    margin: 0;
+    font-family: Georgia;
+    font-size: 1rem;
+    line-height: 1.125rem;
+    padding: 0;
+    border:none;
+    background-color: inherit;
+    color: #727272;
+}
+
+.text-gui span {
+    font-size: 1.125rem;
+    color: #727272;
+    margin: 0 1.375rem;
 }
 
 .text textarea {

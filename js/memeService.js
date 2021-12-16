@@ -27,9 +27,9 @@ var gMeme = {
     lines : [
         {
             txt: 'Input Text',
-            size: 20,
-            align: 'left',
-            color: 'black'
+            size: 40,
+            align: 'center',
+            color: 'white'
         }
     ]
 };
@@ -42,11 +42,8 @@ function getMeme() {
     return memeImg[0].url;
 }
 
-function getLineTxt() {
-    const lines = gMeme.lines.map(line => {
-        return line.txt;
-    })
-    return lines;
+function getLine() {
+    return gMeme.lines;
 }
 
 function setLineTxt(elTxt, idx) {
