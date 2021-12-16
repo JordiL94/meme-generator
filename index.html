@@ -47,17 +47,30 @@
       </div>
     </div>
     <div class="gui">
-      <section class="meme-structure"></section>
+      <section class="meme-structure">
+        <h2>Edit Text Lines</h2>
+        <div class="meme-gui">
+          <span class="current-line">1</span>
+          <span class="total-lines">/1</span>
+          <button class="nav-lines" onclick="onChangeLine()">^</button>
+          <button class="add-line" onclick="onAddLine()">+</button>
+          <button class="delete-line" onclick="onDeleteLine()">-</button>
+        </div>
+      </section>
       <section class="text">
         <div class="text-gui">
           <select onchange="onSetFont(this.value)">
             <option value="impact">Impact</option>
             <option value="roboto">Roboto</option>
           </select>
-          <button class="decrease-text" onclick="onChangeFontSize(0)">A-</button>
-          <button class="increase-text" onclick="onChangeFontSize(1)">A+</button>
+          <button class="change-text-size" onclick="onChangeFontSize(0)">A-</button>
+          <button class="change-text-size" onclick="onChangeFontSize(1)">A+</button>
           <span>|</span>
-          <label class="choose-color"><input type="color" value="#FFFFFF"></label>
+          <button class="change-align" onclick="onChangeAlign(0)">L</button>
+          <button class="change-align" onclick="onChangeAlign(1)">C</button>
+          <button class="change-align" onclick="onChangeAlign(2)">R</button>
+          <span>|</span>
+          <label class="choose-color"><input type="color" value="#FFFFFF" onchange="onChangeColor(this.value)"></label>
         </div>
         <textarea id="" cols="50" rows="2" oninput="onChangeText(this.value)"></textarea>
       </section>

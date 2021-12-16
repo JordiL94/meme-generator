@@ -18,6 +18,7 @@ function renderMeme() {
             drawText(line, idx);
         });
     }
+    renderLineIndicator();
 }
 
 function drawText(line, idx) {
@@ -42,7 +43,8 @@ function drawText(line, idx) {
 }
 
 function onChangeText(elVal) {
-    setLineTxt(elVal, 0);
+    setLineTxt(elVal);
+    renderMeme();
 }
 
 function onSetFont(val) {
@@ -53,4 +55,46 @@ function onSetFont(val) {
 function onChangeFontSize(val) {
     changeFontSize(val);
     renderMeme();
+}
+
+function onChangeColor(val) {
+    changeColor(val);
+    renderMeme();
+}
+
+function onChangeAlign(val) {
+    changeAlign(val);
+    renderMeme();
+}
+
+function onAddLine() {
+    addLine();
+    renderMeme();
+}
+
+function onChangeLine() {
+    changeLine();
+    renderMeme();
+}
+
+function onDeleteLine() {
+    deleteLine();
+    renderMeme();
+}
+
+function renderLineIndicator() {
+    const totalLines = getTotalLines();
+    const currLineInd = document.querySelector('.current-line'); 
+    const totalLinesInd = document.querySelector('.total-lines'); 
+    if(totalLines === 0) {
+        currLineInd.style.display = 'none';
+        totalLinesInd.style.display = 'none';
+        return;
+    }
+    currLineInd.style.display = 'inline';
+    totalLinesInd.style.display = 'inline';
+    
+    const currLine = getCurrLine();
+    currLineInd.innerText = (currLine + 1);
+    totalLinesInd.innerText = '/' + totalLines;
 }

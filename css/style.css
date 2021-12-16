@@ -45,6 +45,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 .main-nav li {
+    cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.188rem;
@@ -142,6 +143,37 @@ li img {
     padding: 0 2rem;
 }
 
+.meme-structure {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.875rem 0 1.313rem;
+    color: #727272;
+}
+
+.meme-structure h2 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+}
+
+.meme-gui span {
+    margin: 0;
+    padding: 0;
+    font-size: 1.125rem;
+}
+
+.total-lines {
+    color: #c4c4c4;
+}
+
+.meme-gui button {
+    margin-inline-start: 1.25rem;
+    padding: 0;
+    border: none;
+    background-color: inherit;
+}
+
 .text {
     display: grid;
 }
@@ -165,7 +197,7 @@ li img {
     color: #989898;
 }
 
-.text-gui button {
+.change-text-size {
     cursor: pointer;
     margin: 0;
     margin-inline-start: 1.175rem;
@@ -178,15 +210,35 @@ li img {
     color: #727272;
 }
 
+.change-align {
+    font-size: 1rem;
+    margin-inline-end: 1.175rem;
+    line-height: 1.125rem;
+    padding: 0;
+    border:none;
+    background-color: inherit;
+}
+
+.change-align:last-child {
+    margin-inline-end: 0;
+}
+
 .text-gui span {
     font-size: 1.125rem;
     color: #727272;
     margin: 0 1.375rem;
 }
 
+
 .choose-color input {
-    visibility: hidden;
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+    border: none;
+    background-color: inherit;
+    /* visibility: hidden; */
 }
+
 
 
 .text textarea {
