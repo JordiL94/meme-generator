@@ -211,6 +211,10 @@ li img {
 }
 
 .change-align {
+    margin: 0;
+}
+
+.change-align button {
     font-size: 1rem;
     margin-inline-end: 1.175rem;
     line-height: 1.125rem;
@@ -219,16 +223,25 @@ li img {
     background-color: inherit;
 }
 
-.change-align:last-child {
+.change-align button:last-child {
     margin-inline-end: 0;
 }
 
-.text-gui span {
+.seperator {
     font-size: 1.125rem;
     color: #727272;
     margin: 0 1.375rem;
 }
 
+.choose-color {
+    display: inline-flex;
+    justify-content: center;
+}
+
+.choose-color span {
+    margin: 0;
+    position: absolute;
+}
 
 .choose-color input {
     width: 1rem;
@@ -236,7 +249,7 @@ li img {
     padding: 0;
     border: none;
     background-color: inherit;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 

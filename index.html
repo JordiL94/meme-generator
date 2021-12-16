@@ -65,12 +65,14 @@
           </select>
           <button class="change-text-size" onclick="onChangeFontSize(0)">A-</button>
           <button class="change-text-size" onclick="onChangeFontSize(1)">A+</button>
-          <span>|</span>
-          <button class="change-align" onclick="onChangeAlign(0)">L</button>
-          <button class="change-align" onclick="onChangeAlign(1)">C</button>
-          <button class="change-align" onclick="onChangeAlign(2)">R</button>
-          <span>|</span>
-          <label class="choose-color"><input type="color" value="#FFFFFF" onchange="onChangeColor(this.value)"></label>
+          <span class="seperator">|</span>
+          <span class="change-align">
+            <button onclick="onChangeAlign(0)">L</button>
+            <button onclick="onChangeAlign(1)">C</button>
+            <button onclick="onChangeAlign(2)">R</button>
+          </span>
+          <span class="seperator">|</span>
+          <label class="choose-color"><input type="color" value="#FFFFFF" onchange="onChangeColor(this.value)"><span>CC</span></label>
         </div>
         <textarea id="" cols="50" rows="2" oninput="onChangeText(this.value)"></textarea>
       </section>
