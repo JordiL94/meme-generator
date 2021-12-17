@@ -9,15 +9,21 @@ function canvasInit() {
 }
 
 function renderMeme() {
+    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
     var img = new Image();
     img.src = getMeme();
-    const lines = getLine();
+    const meme = getMemeInfo();
+    const lines = meme.lines;
+    gCtx.beginPath();
     img.onload = () => {
+        resizeCanvas(img.height, img.width);
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
         lines.forEach((line, idx) => {
             drawText(line, idx);
         });
+        drawTextBox(meme.slectedLineIdx);
     }
+    gCtx.closePath();
     renderLineIndicator();
 }
 
@@ -27,7 +33,9 @@ function drawText(line, idx) {
     gCtx.font = `${line.size}px Impact`;
     gCtx.fillStyle = line.color;
     gCtx.strokeStyle = line.border;
+    gCtx.setLineDash([]);
     gCtx.lineWidth = 2;
+
     if(!idx) {
         gCtx.fillText(line.txt, (gCanvas.width / 2), 50);
         gCtx.strokeText(line.txt, (gCanvas.width / 2), 50);
@@ -38,7 +46,21 @@ function drawText(line, idx) {
         gCtx.fillText(line.txt, (gCanvas.width / 2), (gCanvas.height / 2));
         gCtx.strokeText(line.txt, (gCanvas.width / 2), (gCanvas.height / 2));
     }
-    gCtx.fill();
+}
+
+function drawTextBox(idx) {
+    var y1 = (gCanvas.height / 2) - 25;
+    var y2 = 50;
+    if(!idx) {
+        y1 = 25;
+        y2 = 50;
+    } else if (idx === 1) {
+        y1 = gCanvas.height - 75;
+        y2 = 50;
+    }
+    gCtx.rect(70, y1, 360, y2);
+    gCtx.strokeStyle = '#1b1b1b';
+    gCtx.setLineDash([5, 15]);
     gCtx.stroke();
 }
 
@@ -58,6 +80,17 @@ function renderLineIndicator() {
     currLineInd.innerText = (currLine + 1);
     totalLinesInd.innerText = '/' + totalLines;
 }
+
+function resizeCanvas(height, width) {
+    console.log(height)
+    console.log(width)
+    var elContainer = document.querySelector('.canvas-container');
+    elContainer.style.height = height + 'px';
+    elContainer.style.width = width + 'px';
+    gCanvas.width = elContainer.offsetWidth;
+    gCanvas.height = elContainer.offsetHeight;
+}
+
 
 function onChangeText(elVal) {
     setLineTxt(elVal);

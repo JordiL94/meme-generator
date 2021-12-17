@@ -109,16 +109,16 @@ li img {
     grid-template-rows: 1fr;
 }
 
-.canvas-container {
+.work-container {
     grid-template-rows: 1fr 8fr;
     background-color: #fff;
 }
 
-.canvas-container div {
+.canvas-container {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 7.25rem;
+    margin-top: 5rem;
 }
 
 .back-to-gallery {

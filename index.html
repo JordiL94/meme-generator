@@ -22,23 +22,20 @@
         <li>About</li>
       </ul>
     </div>
-  </header>
-  
+  </header> 
   
   <main class="main-content">
     <section class="search-bar">
       <input type="text" placeholder="Search">
     </section>
-
     <section class="gallery">
     </section>
-
   </main>
   
   <section class="editor">
-    <div class="canvas-container">
+    <div class="work-container">
       <button class="back-to-gallery" onclick="onShowGallery()"><span><i class="fas fa-angle-left"></i></span>Back to Gallery</button>
-      <div>
+      <div class="canvas-container">
         <canvas
           id="canvas"
           height="500"
@@ -80,14 +77,14 @@
     </div>
   </section>
 
+  <!-- FONT-AWESOME -->
+  <script src="https://kit.fontawesome.com/f2cc6273c5.js" crossorigin="anonymous"></script>
+
   <!-- APP SERVICES -->
   <script src="js/memeService.js"></script>
   <script src="js/galleryController.js"></script>
   <script src="js/memeController.js"></script>
   <script src="js/main.js"></script>
-
-  <!-- FONT-AWESOME -->
-  <script src="https://kit.fontawesome.com/f2cc6273c5.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -43,8 +43,8 @@ function getMeme() {
     return memeImg[0].url;
 }
 
-function getLine() {
-    return gMeme.lines;
+function getMemeInfo() {
+    return gMeme;
 }
 
 function setLineTxt(elTxt) {
