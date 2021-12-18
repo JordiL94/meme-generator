@@ -24,6 +24,10 @@ input:focus, textarea:focus, select:focus{
     width: 100%;
 }
 
+.meme-content {
+    width: 100%;
+}
+
 /* HEADER */
 .main-header {
     display: flex;
@@ -96,6 +100,19 @@ li img {
     cursor: pointer;
     max-width: 170px;
     border-radius: 0.625rem;
+}
+
+/* MEMES */
+.meme-gallery {
+    margin: 1.875rem 0.625rem;
+}
+
+.meme-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap:  0.625rem;
+    row-gap: 0.938rem;
 }
 
 /* EDITOR */
@@ -444,6 +461,15 @@ body.menu-open .main-screen {
 
     li img {
         max-width: 210px;
+    }
+
+    .meme-gallery {
+        margin: 1.875rem;
+    }
+
+    .meme-items {
+        column-gap:  1.563rem;
+        row-gap: 1.25rem;
     }
     
     .back-to-gallery {
