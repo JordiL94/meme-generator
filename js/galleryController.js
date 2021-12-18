@@ -39,6 +39,7 @@ function onShowGallery() {
     document.querySelector('.meme-content').style.display = 'none';
     document.querySelector('.editor').style.display = 'none';
     document.querySelector('.file-input').style.display = 'none';
+    renderGallery();
     renderFirstTagLinks();
 }
 
