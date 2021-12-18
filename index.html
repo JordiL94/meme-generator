@@ -19,7 +19,7 @@
     </div>
     <nav class="main-nav">
       <ul class="clean-list">
-        <li>Memes</li>
+        <li onclick="onShowMemes()">Memes</li>
         <li class="break"></li>
         <li onclick="onShowGallery()">Gallery</li>
         <li class="break"></li>
@@ -30,10 +30,34 @@
   </header> 
   
   <main class="main-content">
-    <section class="search-bar">
-      <input type="text" placeholder="Search">
+    <section class="search-bar"> 
+      <input list="meme-tags" placeholder="Search" oninput="onImageSearch(this.value)"/>
+      <datalist id="meme-tags">
+        <option value="animals">
+        <option value="conspiracy">
+        <option value="crying">
+        <option value="cute">
+        <option value="dance">
+        <option value="doubt">
+        <option value="movies">
+        <option value="funny">
+        <option value="girl">
+        <option value="kids">
+        <option value="laughing">
+        <option value="pointing">
+        <option value="politics">
+        <option value="sports">
+        <option value="success">
+        <option value="TV">
+        <option value="yelling">
+      </datalist>
     </section>
     <section class="gallery">
+    </section>
+  </main>
+
+  <main class="meme-content">
+    <section class="meme-gallery">
     </section>
   </main>
   
@@ -62,7 +86,7 @@
       <section class="text">
         <div class="text-gui">
           <select onchange="onSetFont(this.value)">
-            <option value="impact">Impact</option>
+            <option value="Impact">Impact</option>
             <option value="roboto">Roboto</option>
           </select>
           <button class="change-text-size" onclick="onChangeFontSize(0)">A-</button>
@@ -79,6 +103,12 @@
         </div>
         <textarea id="" cols="50" rows="2" oninput="onChangeText(this.value)"></textarea>
       </section>
+      <section class="emoji">
+        <div class="emoji-chooser"></div>
+      </section>
+      <section class="actions">
+        <button class="save-to-local" onclick="onSaveToStorage()">Save</button>
+      </section>
     </div>
   </section>
 
@@ -86,6 +116,7 @@
   <script src="https://kit.fontawesome.com/f2cc6273c5.js" crossorigin="anonymous"></script>
 
   <!-- APP SERVICES -->
+  <script src="js/memeStorage.js"></script>
   <script src="js/memeService.js"></script>
   <script src="js/galleryController.js"></script>
   <script src="js/memeController.js"></script>

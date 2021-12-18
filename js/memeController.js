@@ -2,6 +2,7 @@
 
 var gCanvas;
 var gCtx;
+var gIsSaving = false;
 
 function canvasInit() {
     gCanvas = document.querySelector('#canvas');
@@ -22,17 +23,18 @@ function renderMeme() {
         lines.forEach((line, idx) => {
             drawText(line, idx);
         });
-        drawTextBox(meme.slectedLineIdx);
+        if(!gIsSaving) drawTextBox(meme.slectedLineIdx);
     }
     gCtx.closePath();
 
     renderLineIndicator();
+    renderEmojis();
 }
 
 function drawText(line, idx) {
     gCtx.textBaseline = 'middle';
     gCtx.textAlign = line.align;
-    gCtx.font = `${line.size}px Impact`;
+    gCtx.font = `${line.size}px ${line.font}`;
     gCtx.fillStyle = line.color;
     gCtx.strokeStyle = line.border;
     gCtx.setLineDash([]);
@@ -64,7 +66,7 @@ function drawTextBox(idx) {
     var x2 = x1 * 6;
     gCtx.rect(x1, y1, x2, y2);
     gCtx.strokeStyle = '#454545';
-    gCtx.setLineDash([5, 15]);
+    gCtx.setLineDash([5, 15]);  
     gCtx.stroke();
 }
 
@@ -94,6 +96,16 @@ function resizeCanvas(height, width) {
     gCanvas.height = elContainer.offsetHeight;
 }
 
+function renderEmojis() {
+    var strHTMLs = '<ul class="clean-list">';
+    const emojis = getEmojis();
+    emojis.forEach((emoji) => {
+        strHTMLs += `<li onclick="onChooseEmoji(${emoji.id})">${emoji.txt}</li>`;
+    });
+    strHTMLs += '</ul>';
+    document.querySelector('.emoji-chooser').innerHTML = strHTMLs;
+}
+
 
 function onChangeText(elVal) {
     setLineTxt(elVal);
@@ -101,8 +113,8 @@ function onChangeText(elVal) {
 }
 
 function onSetFont(val) {
-    return;
-    // TODO: finish func
+    changeFont(val);
+    renderMeme();
 }
 
 function onChangeFontSize(val) {
@@ -138,4 +150,22 @@ function onDeleteLine() {
 function onChangeBorder(val) {
     changeBorder(val);
     renderMeme();
+}
+
+function onChooseEmoji (elId) {
+    setEmoji(elId);
+    renderMeme();
+}
+
+function onSaveToStorage() {
+    gIsSaving = true;
+    renderMeme();
+    if(confirm('Are you sure you want to save this meme?')) {
+        setTimeout(() => {
+            const imgContent = gCanvas.toDataURL('image/jpeg');
+            saveMemeLocally(imgContent);
+            gIsSaving = false;
+            onShowGallery();
+        }, 500);
+    }
 }

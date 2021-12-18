@@ -263,8 +263,21 @@ li img {
     font-size: 1rem;
 }
 
-/* SCREENS */
+.emoji {
+    margin-top: 1.313rem;
+    background-color: #fff;
+    padding: 0.675rem;
+    font-size: 2rem;
+    border: 1px solid #EBEBEB;
+}
 
+.emoji-chooser ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* SCREENS */
 .main-screen {
     position: fixed;
     width: 100%;
@@ -409,5 +422,9 @@ body.menu-open .main-screen {
 
     .canvas-container {
         margin: 3rem auto;
+    }
+
+    .emoji {
+        font-size: 3.5rem;
     }
 }
