@@ -11,17 +11,22 @@
 
 <body onload="init()">
 
+  <div class="main-screen" onclick="toggleMenu()"></div>
+
   <header class="main-header">
     <div class="logo-container">
       <img src="LOGO/LOGO.png">
     </div>
-    <div class="main-nav">
+    <nav class="main-nav">
       <ul class="clean-list">
         <li>Memes</li>
-        <li>Gallery</li>
+        <li class="break"></li>
+        <li onclick="onShowGallery()">Gallery</li>
+        <li class="break"></li>
         <li>About</li>
       </ul>
-    </div>
+    </nav>
+    <button class="btn-menu" onclick="toggleMenu()">☰</button>
   </header> 
   
   <main class="main-content">

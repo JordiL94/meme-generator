@@ -39,27 +39,6 @@ input:focus, textarea:focus, select:focus{
     margin: 0.563rem 1.25rem;
 }
 
-.main-nav ul {
-    display: flex;
-    margin: 1rem 1.25rem;
-}
-
-.main-nav li {
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.188rem;
-    color: #989898;
-}
-
-.main-nav li:not(:last-child) {
-    margin-inline-end: 50px;
-}
-
-.main-nav li:active {
-    color: #FF9826;
-}
-
 /* SEARCH-BAR */
 .search-bar input{
     width: calc(100% - 2.5rem);
@@ -85,19 +64,19 @@ input:focus, textarea:focus, select:focus{
 
 /* GALLERY */
 .gallery {
-    margin: 0 1.875rem;
+    margin: 0 0.625rem;
 }
 
 .gallery-items {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    column-gap:  1.563rem;
-    row-gap: 1.25rem;
+    column-gap:  0.625rem;
+    row-gap: 0.938rem;
 }
 
 li img {
-    max-width: 210px;
+    max-width: 170px;
     border-radius: 0.625rem;
 }
 
@@ -105,36 +84,23 @@ li img {
 .editor {
     margin-top: 0.0625rem;
     height: calc(100vh - 3.1875rem);
-    grid-template-columns: 8.9fr 5.5fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4.11fr 3.56fr;
+    max-width: 100vw;
 }
 
 .work-container {
     grid-template-rows: 1fr 8fr;
     background-color: #fff;
+    max-width: 100vw;
 }
 
 .canvas-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 5rem;
+    margin: 0.625rem auto;
 }
 
 .back-to-gallery {
-    cursor: pointer;
-    background: none;
-    border: none;
-    font-size: 0.875rem;
-    color: #989898;
-    font-weight: 400;
-    line-height: 1rem;
-    margin-inline-start: 1.625rem;
-    margin-top: 1.5rem;
-}
-
-.back-to-gallery span {
-    margin-inline-end: 0.9375rem;
+    display: none;
 }
 
 .gui {
@@ -297,9 +263,151 @@ li img {
     font-size: 1rem;
 }
 
+/* SCREENS */
+
+.main-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .35);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+
+body.menu-open .main-screen {
+    pointer-events: auto;
+    opacity: 1;
+}
+
 /* HELPERS */
 .clean-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
+}
+
+@media screen and (max-width: 376px) { 
+    /* HAMBURBER */    
+    .btn-menu {
+        margin-inline-end: 1rem;
+        border: none;
+        background-color: inherit;
+    }
+
+    .main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 27.3% 1rem;
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+        color: #FFFFFF;
+        position: fixed;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: rgba(255, 179, 64, 0.9);
+        height: 100vh;
+        border-inline-start: 1px solid #FF9826;
+        width: 70%;
+        transform: translateX(100%);
+        transition: transform .6s, box-shadow .6s;
+        z-index: 1;
+    }
+
+    body.menu-open .main-nav ul {
+        box-shadow: 0px 0px 30px rgb(0 0 0 / 30%);
+        transform: translateX(0);
+    }
+
+    .main-nav li {
+        border-bottom:#FFFFFF;
+    }
+
+    .break {
+        width: 21px;
+        height: 0px;
+        border-top: 1px solid #FFFFFF;
+    }
+
+    .main-header button {
+        border: none;
+        background-color: inherit;
+    }    
+}
+
+@media screen and (min-width: 376px) {
+    .btn-menu {
+        display: none;
+    }
+
+    .main-nav ul {
+        display: flex;
+        flex-direction: row;
+        margin: 1rem 1.25rem;
+    }
+    
+    .main-nav li {
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.188rem;
+        color: #989898;
+    }
+    
+    .main-nav li:not(:last-child) {
+        margin-inline-end: 50px;
+    }
+    
+    .main-nav li:active {
+        color: #FF9826;
+    }
+
+    .break {
+        display: none;
+    }
+
+    .gallery {
+        margin: 0 1.875rem;
+    }
+
+    .gallery-items {
+        column-gap:  1.563rem;
+        row-gap: 1.25rem;
+    }
+
+    li img {
+        max-width: 210px;
+    }
+
+    .editor {
+        grid-template-columns: 8.9fr 5.5fr;
+        grid-template-rows: 1fr;
+    }
+
+    .back-to-gallery {
+        display: block;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 0.875rem;
+        color: #989898;
+        font-weight: 400;
+        line-height: 1rem;
+        margin-inline-start: 1.625rem;
+        margin-top: 1.5rem;
+    }
+    
+    .back-to-gallery span {
+        margin-inline-end: 0.9375rem;
+    } 
+
+    .canvas-container {
+        margin: 3rem auto;
+    }
 }

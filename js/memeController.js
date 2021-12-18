@@ -14,6 +14,7 @@ function renderMeme() {
     img.src = getMeme();
     const meme = getMemeInfo();
     const lines = meme.lines;
+
     gCtx.beginPath();
     img.onload = () => {
         resizeCanvas(img.height, img.width);
@@ -24,6 +25,7 @@ function renderMeme() {
         drawTextBox(meme.slectedLineIdx);
     }
     gCtx.closePath();
+
     renderLineIndicator();
 }
 
@@ -58,8 +60,10 @@ function drawTextBox(idx) {
         y1 = gCanvas.height - 75;
         y2 = 50;
     }
-    gCtx.rect(70, y1, 360, y2);
-    gCtx.strokeStyle = '#1b1b1b';
+    var x1 = gCanvas.width / 8;
+    var x2 = x1 * 6;
+    gCtx.rect(x1, y1, x2, y2);
+    gCtx.strokeStyle = '#454545';
     gCtx.setLineDash([5, 15]);
     gCtx.stroke();
 }
@@ -82,11 +86,10 @@ function renderLineIndicator() {
 }
 
 function resizeCanvas(height, width) {
-    console.log(height)
-    console.log(width)
     var elContainer = document.querySelector('.canvas-container');
-    elContainer.style.height = height + 'px';
-    elContainer.style.width = width + 'px';
+    elContainer.style.maxWidth = width + 'px';
+    const heightCalc = (height * elContainer.offsetWidth) / width;
+    elContainer.style.height = heightCalc + 'px';
     gCanvas.width = elContainer.offsetWidth;
     gCanvas.height = elContainer.offsetHeight;
 }

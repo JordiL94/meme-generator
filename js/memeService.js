@@ -63,7 +63,11 @@ function getImgs() {
 
 function changeFontSize(val) {
     const lineIdx = gMeme.slectedLineIdx;
-    gMeme.lines[lineIdx].size += (val) ? 2 : -2;
+    if(val && gMeme.lines[lineIdx].size <= 90) {
+        gMeme.lines[lineIdx].size += 2;
+    } else if (gMeme.lines[lineIdx].size >= 20) {
+        gMeme.lines[lineIdx].size -=2;
+    }
 }
 
 function changeAlign(val) {
