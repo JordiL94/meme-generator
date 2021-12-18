@@ -39,6 +39,7 @@ function onShowGallery() {
     document.querySelector('.meme-content').style.display = 'none';
     document.querySelector('.editor').style.display = 'none';
     document.querySelector('.file-input').style.display = 'none';
+    renderFirstTagLinks();
 }
 
 function onShowMemes() {
@@ -51,4 +52,34 @@ function onShowMemes() {
 
 function onImageSearch(val) {
     renderGallery(val);
+}
+
+function renderTagLinks() {
+    const tags = getTags();
+    var strHTML = `<ul class="tag-list clean-list">`
+    tags.forEach(tag => {
+        strHTML += `<li onclick="onImageSearch('${tag.tag}'); 
+            onSearchHit('${tag.tag}', 'long')" style="font-size: 
+            ${(10 + tag.hits)}px">${tag.tag}</li>`;
+    });
+    strHTML += '</ul>';
+    document.querySelector('.tag-links').innerHTML = strHTML;
+}
+
+function renderFirstTagLinks() {
+    const tags = getTags();
+    var strHTML = `<ul class="tag-list clean-list">`;
+    for(var i = 0; i < 5; i++) {
+        strHTML += `<li onclick="onImageSearch('${tags[i].tag}');
+            onSearchHit('${tags[i].tag}', 'short')" style="font-size: 
+            ${(10 + tags[i].hits)}px">${tags[i].tag}</li>`;
+    }
+    strHTML += '<li onclick="renderTagLinks()">More...</li></ul>';
+    document.querySelector('.tag-links').innerHTML = strHTML;
+}
+
+function onSearchHit(val, list) {
+    increaseHit(val);
+    if(list === 'long') renderTagLinks();
+    else renderFirstTagLinks();
 }
