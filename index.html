@@ -71,6 +71,7 @@
           width="500"
         ></canvas>
       </div>
+      <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
     </div>
     <div class="gui">
       <section class="meme-structure">
@@ -108,7 +109,10 @@
       </section>
       <section class="actions">
         <button class="save-to-local" onclick="onSaveToStorage()">Save</button>
+        <button class="share-fb" onclick="onSaveToFB()">Share</button>
       </section>
+      <p class="user-msg"></p>
+      <div class="share-container"></div>
     </div>
   </section>
 

@@ -75,7 +75,25 @@ input:focus, textarea:focus, select:focus{
     row-gap: 0.938rem;
 }
 
+.add-image {
+    cursor: pointer;
+    text-align: center;
+    font-size: 100px;
+    padding: 45px 0;
+    width: 170px;
+    height: 210px;
+    border-radius: 0.625rem;
+    background-color: #fafafa;
+    color: #989898;
+}
+
+.add-image:hover {
+    background-color: #FFFFFF;
+    color: #b6b6b6;
+}
+
 li img {
+    cursor: pointer;
     max-width: 170px;
     border-radius: 0.625rem;
 }
@@ -100,6 +118,10 @@ li img {
 }
 
 .back-to-gallery {
+    display: none;
+}
+
+.file-input {
     display: none;
 }
 
@@ -277,6 +299,25 @@ li img {
     flex-wrap: wrap;
 }
 
+.actions {
+    margin: 1.313rem 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions button {
+    width: 8.75rem;
+    height: 3.375rem;
+    background: #FF9826;
+    border: 1px solid #FF9826;
+    border-radius: 2.188rem;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.313rem;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
 /* SCREENS */
 .main-screen {
     position: fixed;
@@ -303,7 +344,7 @@ body.menu-open .main-screen {
     margin: 0;
 }
 
-@media screen and (max-width: 376px) { 
+@media screen and (max-width: 500px) { 
     /* HAMBURBER */    
     .btn-menu {
         margin-inline-end: 1rem;
@@ -354,7 +395,7 @@ body.menu-open .main-screen {
     }    
 }
 
-@media screen and (min-width: 376px) {
+@media screen and (min-width: 500px) {
     .btn-menu {
         display: none;
     }
@@ -394,15 +435,17 @@ body.menu-open .main-screen {
         row-gap: 1.25rem;
     }
 
+    .add-image {
+        width: 210px;
+        height: 260px;
+        font-size: 120px;
+        padding: 60px 0;
+    }
+
     li img {
         max-width: 210px;
     }
-
-    .editor {
-        grid-template-columns: 8.9fr 5.5fr;
-        grid-template-rows: 1fr;
-    }
-
+    
     .back-to-gallery {
         display: block;
         cursor: pointer;
@@ -422,6 +465,13 @@ body.menu-open .main-screen {
 
     .canvas-container {
         margin: 3rem auto;
+    }
+}
+
+@media screen and (min-width: 1060px) {
+    .editor {
+        grid-template-columns: 8.9fr 5.5fr;
+        grid-template-rows: 1fr;
     }
 
     .emoji {

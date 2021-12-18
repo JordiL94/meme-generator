@@ -30,9 +30,27 @@ var gImgs = [
     {id: 25, url: 'img/25.jpg', keywords: ['pointing', 'movies']}
 ];
 
-var gTags = ['animals', 'conspiracy', 'crying', 'cute', 'dance', 'doubt', 
-    'movies', 'funny', 'girl', 'kids', 'laughing', 'pointing', 'politics', 
-    'sports', 'success', 'TV', 'yelling']
+var gImgTracker = 25;
+
+var gTags = [
+    {tag: 'animals', hits: 1},
+    {tag: 'conspiracy', hits: 3},
+    {tag: 'crying', hits: 8},
+    {tag: 'cute', hits: 5},
+    {tag: 'dance', hits: 2},
+    {tag: 'doubt', hits: 2},
+    {tag: 'movies', hits: 3},
+    {tag: 'funny', hits: 4},
+    {tag: 'girl', hits: 7},
+    {tag: 'kids', hits: 5},
+    {tag: 'laughing', hits: 9},
+    {tag: 'pointing', hits: 2},
+    {tag: 'politics', hits: 1},
+    {tag: 'sports', hits: 3},
+    {tag: 'success', hits: 4},
+    {tag: 'TV', hits: 4},
+    {tag: 'yelling', hits: 3}
+];
 
 var gMeme = {
     selectedImgId: 5,
@@ -66,6 +84,7 @@ var gEmojis = [
 ];
 
 function getMeme() {
+    if(gMeme.selectedImgId === 0) return;
     const imgId = gMeme.selectedImgId;
     const memeImg = gImgs.filter(img => {
         return img.id === imgId;
@@ -91,7 +110,7 @@ function setLineTxt(elTxt) {
     gMeme.lines[lineIdx].txt = elTxt;
 }
 
-function setImg(id) {
+function setImg(id = 0) {
     gMeme.selectedImgId = id;
     renderMeme();
 } 
@@ -182,6 +201,13 @@ function setEmoji(id) {
 function saveMemeLocally(meme) {
     gStoredMemes.push(meme);
     saveToStorage('memes', gStoredMemes);
+}
+
+function newImg(url) {
+    gImgTracker += 1;
+    const newImg = {id: gImgTracker, url: url, keywords: []};
+    gImgs.push(newImg);
+    gMeme.selectedImgId = gImgTracker;
 }
 
 function _createLine(txt = 'Inout Text', color = 'white', border = '#121212', type = 'text') {
