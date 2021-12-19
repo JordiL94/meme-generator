@@ -11,6 +11,8 @@ function init() {
     document.querySelector('.gallery-sect').classList.add('active');
 }
 
+function someFunc() {}
+
 function toggleMenu() {
     document.body.classList.toggle('menu-open');
 }
