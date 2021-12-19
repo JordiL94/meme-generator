@@ -119,6 +119,7 @@ function getImgs(tag) {
     if(tag === '') return gImgs;
     const searchedImgs = gImgs.filter(img => {
         return img.keywords.some(keyword => {
+            if(keyword === tag) onSearchHit(tag);
             return keyword.includes(tag);
         })
     })
@@ -166,7 +167,7 @@ function changeLine() {
 }
 
 function deleteLine() {
-    if(gMeme.lines.length === 0) return;
+    if(!gMeme.lines.length) return;
     const lineIdx = gMeme.slectedLineIdx;
     gMeme.lines.splice(lineIdx, 1);
     if(lineIdx === 0) return;
@@ -216,7 +217,7 @@ function getTags() {
 
 function increaseHit(val) {
     gTags.map(tag => {
-        if(tag.tag === val) tag.hits++;
+        if(tag.tag === val && tag.hits < 41) tag.hits++;
     });
 }
 

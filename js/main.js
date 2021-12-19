@@ -8,6 +8,7 @@ function init() {
     renderFirstTagLinks();
     document.querySelector('.editor').style.display = 'none';
     document.querySelector('.meme-content').style.display = 'none';
+    document.querySelector('.gallery-sect').classList.add('active');
 }
 
 function toggleMenu() {

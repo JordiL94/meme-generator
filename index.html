@@ -15,15 +15,15 @@
 
   <header class="main-header">
     <div class="logo-container">
-      <img src="LOGO/LOGO.png">
+      <img src="img/LOGO.png">
     </div>
     <nav class="main-nav">
       <ul class="clean-list">
-        <li onclick="onShowMemes()">Memes</li>
+        <li class="memes-sect" onclick="onShowMemes()">Memes</li>
         <li class="break"></li>
-        <li onclick="onShowGallery()">Gallery</li>
+        <li class="gallery-sect" onclick="onShowGallery()">Gallery</li>
         <li class="break"></li>
-        <li>About</li>
+        <li class="about-sect">About</li>
       </ul>
     </nav>
     <button class="btn-menu" onclick="toggleMenu()">☰</button>
@@ -33,23 +33,23 @@
     <section class="search-bar"> 
       <input list="meme-tags" placeholder="Search" oninput="onImageSearch(this.value)"/>
       <datalist id="meme-tags">
-        <option value="animals">
-        <option value="conspiracy">
-        <option value="crying">
-        <option value="cute">
-        <option value="dance">
-        <option value="doubt">
-        <option value="movies">
-        <option value="funny">
-        <option value="girl">
-        <option value="kids">
-        <option value="laughing">
-        <option value="pointing">
-        <option value="politics">
-        <option value="sports">
-        <option value="success">
-        <option value="TV">
-        <option value="yelling">
+        <option value="animals" ></option>
+        <option value="conspiracy"></option>
+        <option value="crying"></option>
+        <option value="cute"></option>
+        <option value="dance"></option>
+        <option value="doubt"></option>
+        <option value="movies"></option>
+        <option value="funny"></option>
+        <option value="girl"></option>
+        <option value="kids"></option>
+        <option value="laughing"></option>
+        <option value="pointing"></option>
+        <option value="politics"></option>
+        <option value="sports"></option>
+        <option value="success"></option>
+        <option value="TV"></option>
+        <option value="yelling"></option>
       </datalist>
       <div class="tag-links"></div>
     </section>
@@ -110,6 +110,7 @@
       </section>
       <section class="actions">
         <button class="save-to-local" onclick="onSaveToStorage()">Save</button>
+        <button class="download-canvas"><a href="#" onclick="downloadCanvas(this)">Download</a></button>
         <button class="share-fb" onclick="onSaveToFB()">Share</button>
       </section>
       <p class="user-msg"></p>

@@ -166,7 +166,7 @@ function onSaveToStorage() {
             const imgContent = gCanvas.toDataURL('image/jpeg');
             saveMemeLocally(imgContent);
             gIsSaving = false;
-            onShowGallery();
+            onShowMemes();
         }, 500);
     }
 }
@@ -220,7 +220,6 @@ function loadImageFromInput(ev, onImageReady) {
 
     reader.onload = (event) => {
         var img = new Image();
-        // Render on canvas
         img.onload = onImageReady.bind(null, img);
         img.src = event.target.result;
         newImg(img.src);
@@ -231,4 +230,18 @@ function loadImageFromInput(ev, onImageReady) {
 
 function renderImg(img) {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+}
+
+function downloadCanvas(elLink) {
+    gIsSaving = true;
+    renderMeme();
+    if(confirm('Are you sure you want to download this meme?')) {
+        setTimeout(() => {
+            const data = gCanvas.toDataURL();
+            elLink.href = data;
+            elLink.download = 'my-img.jpg';
+            gIsSaving = false;
+            renderMeme();
+        }, 500);
+    }
 }
