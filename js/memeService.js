@@ -221,6 +221,7 @@ function increaseHit(val) {
     });
 }
 
+
 function _createLine(txt = 'Inout Text', color = 'white', border = '#121212', type = 'text') {
     const newLine = {
         txt: txt,

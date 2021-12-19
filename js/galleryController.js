@@ -30,6 +30,7 @@ function onImgSelect(imgId = 0) {
     document.querySelector('.editor').style.display = 'grid';
     document.querySelector('.user-msg').innerText = '';
     document.querySelector('.share-container').innerText = '';
+    document.querySelector('.gallery-sect').classList.remove('active');
     if(imgId === 0) document.querySelector('.file-input').style.display = 'block';
     setImg(imgId);
 }

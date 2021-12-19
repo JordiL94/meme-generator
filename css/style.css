@@ -351,16 +351,33 @@ li img {
 }
 
 .actions button {
-    width: 8.75rem;
-    height: 3.375rem;
+    width: 5.75rem;
+    height: 2.375rem;
     background: #FF9826;
     border: 1px solid #FF9826;
     border-radius: 2.188rem;
     font-weight: 500;
-    font-size: 1.125rem;
-    line-height: 1.313rem;
+    font-size: 0.675rem;
+    line-height: 1rem;
     text-transform: uppercase;
     color: #FFFFFF;
+}
+
+.actions .share-fb {
+    font-size: 2.5rem;
+    width: fit-content;
+    background: none;
+    border: none;
+    color: #727272;
+}
+
+.actions .share-fb:hover {
+    color: #3B5998;
+}
+
+.share-container a {
+    text-decoration: underline;
+    color: #3B5998;
 }
 
 /* SCREENS */
@@ -522,6 +539,17 @@ body.menu-open .main-screen {
     .canvas-container {
         margin: 3rem auto;
     }
+
+    .actions button {
+        width: 7rem;
+        font-size: 1rem;
+        height: 2.875rem;
+        line-height: 1.113rem;
+    }
+
+    .actions .share-fb {
+        font-size: 3rem;
+    }
 }
 
 @media screen and (min-width: 1060px) {
@@ -531,6 +559,17 @@ body.menu-open .main-screen {
     }
 
     .emoji {
+        font-size: 3.5rem;
+    }
+
+    .actions button {
+        width: 8.75rem;
+        font-size: 1.125rem;
+        height: 3.375rem;
+        line-height: 1.313rem;
+    }
+
+    .actions .share-fb {
         font-size: 3.5rem;
     }
 }

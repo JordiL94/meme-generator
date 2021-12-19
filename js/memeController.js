@@ -245,3 +245,25 @@ function downloadCanvas(elLink) {
         }, 500);
     }
 }
+
+function onShare() {
+    gIsSaving = true;
+    renderMeme();
+    setTimeout(() => {
+        const data = gCanvas.toDataURL();
+        share(data);
+        gIsSaving = false;
+        renderMeme();
+    }, 500);
+}
+
+async function share(data) {
+    const base64url = data;
+    const blob = await (await fetch(base64url)).blob();
+    const file = new File([blob], 'fileName.png', { type: blob.type });
+    navigator.share({
+      title: 'MemeGeneartor!',
+      text: 'Check out this meme!',
+      files: [file],
+    })
+}
